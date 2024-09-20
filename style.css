@@ -1,6 +1,7 @@
 body{
     font-family:'Franklin Gothic Medium';
     margin: 0;
+    background-color: #282654;
 }
 
 .container{
@@ -9,6 +10,18 @@ body{
     margin: auto;
     text-align: center;
     padding-top: 10px;
+    transition: transform 0.5s;
+}
+.title{
+    color:#eee;
+    font-size: larger;
+    font-family: fantasy;
+    
+}
+.open-cart{
+    background-color: #282654;
+    border: none;
+    width: 300px;
 }
 svg{
     width: 30px;
@@ -84,4 +97,65 @@ header .icon-cart span{
     background-color: #353432;
     color: #eee;
     margin-top: 5px;
+}
+.cartTab{
+    position: relative;
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0 -400px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: 0.5s;
+}
+body.showCart .cartTab{
+    inset: 0 0 0 auto;
+}
+body.showCart .container{
+    transform: translateX(-150px);
+}
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+    text-align: center;
+}
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.cartTab .btn button{
+    background-color: #E8BC0E;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cartTab .listCart .item img{
+    width: 30px;
+    height: 30px;
+}
+.cartTab .listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.listCart{
+    overflow: auto;
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+#amount {
+    position: absolute;
+    bottom: 50px; 
+    right: 100px;   
+    padding: 20px;
+    color: #c4c3c3;
 }
